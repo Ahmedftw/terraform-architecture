@@ -1,0 +1,26 @@
+Créer une infrastructure avec Terraform :
+
+1 VPC comprenant:
+2 subnets publics (AZa-AZb)
+2 subnets privés (AZa-AZb)
+1 bastion dans le subnet public
+2 instances web dans le subnet privé (apache ou autre) loadbalancées
+1 RDS
+1 security group autorisant le ssh pour le bastion
+1 security group autorisant le 80 et 443 sur le loadbalancer depuis l'exterieur
+1 security group pour les instances web autorisant le 80 et 443 depuis le SG du loadbalancer
+1 security group autorisant le port bdd choisi pour RDS depuis les instances web
+
+Create Application loadbalancer :
+1- basic configuration : 
+    -Name
+    -Schema : internet-facing or internal
+    -Listeners(LB protocol)
+    -Availability Zones (VPC, Subnet(two subnets))
+2- Security group
+3- Routing 
+    -Target Group: (TG,Name, Protocol, Port)
+    -Health checks:(Protocol, Path)
+4- Register Target :(add instane)
+
+    
